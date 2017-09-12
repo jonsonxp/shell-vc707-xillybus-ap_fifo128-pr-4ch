@@ -1,0 +1,80 @@
+#!/bin/bash
+PROGNAME=$(basename $0)
+VERSION="0.1.1"
+
+usage() {
+  echo "usage: ./configure" 1>&2
+  echo "Options:" 1>&2
+  echo "    -channel NUMBER       : channel num for this IP." 1>&2
+  echo "    -clk NUMBER           : clock frequency in MHz (100, 150, 200 or 250)." 1>&2
+  echo "    -reference STRING     : The reference of code of ip in shell." 1>&2
+  exit 1
+}
+
+for i in "$@"
+do
+case $i in
+        '-h'|'--help' )
+            usage
+            exit 1
+        ;;
+        '--version' )
+            echo $VERSION
+            exit 1
+            ;;
+        -channel)
+            if [ -z "$2" ]; then
+                echo "option requires an argument -- $1" 1>&2
+                exit 1
+            fi
+            CHANNEL=$2
+            shift 2
+            ;;
+        -reference)
+            if [ -z "$2" ]; then
+                echo "option requires an argument -- $1" 1>&2
+                exit 1
+            fi
+            REFERENCE=$2
+            shift 2
+            ;;
+        -clk)
+            if [ -z "$2" ]; then
+                echo "option requires an argument -- $1" 1>&2
+                exit 1
+            fi
+            CLK=$2
+            shift 2
+            ;;        
+        -*)
+        shift 2
+        ;;
+        *)
+        ;;
+esac
+done
+
+if [ -z $CLK ]; then
+    echo "$PROGNAME: need -clk argument" 1>&2
+    usage
+    exit 1
+fi
+
+if [ -z $CHANNEL ]; then
+    echo "$PROGNAME: need -channel arguments" 1>&2
+    usage
+    exit 1
+fi
+
+sed -i "/pragma_ip_clk_1/c\ assign ip_clk_1 = user_clk_$CLK;//pragma_ip_clk_1" shell-src/hcode_subshell_$CHANNEL.v
+echo "Updated the clock" 1>&2
+
+sed -i "/set top_module/c\set top_module hcode_subshell_$CHANNEL" scripts/vivado_make_subshell.tcl
+sed -i "/read_verilog/c\read_verilog ./shell-src/hcode_subshell_$CHANNEL.v" scripts/vivado_make_subshell.tcl
+sed -i "/set ch/c\set ch $CHANNEL" scripts/vivado_make.tcl
+echo "Updated the channel" 1>&2
+
+if [ "$REFERENCE" ]; then
+    sed -i "/pragma_ip_wrapper_$CHANNEL/c\ $REFERENCE //pragma_ip_wrapper_$CHANNEL" shell-src/hcode_subshell_$CHANNEL.v
+    echo "Updated the IP reference" 1>&2
+fi

@@ -1,0 +1,84 @@
+{
+  "ip": {
+    "1": {
+      "name": "ip-loopback",
+      "tag": "0.0.1",
+      "ip_conf": "-clk '250' -data_width 128 -device 'xc7vx485tffg1761-2' ",
+      "shell_conf": "-channel '$ch_num' -clk '250' -reference ' $ip_name $instance_name (.ap_clk(ip_clk_$ch_num), .ap_rst(~ip_rst_n_$ch_num), .in_V_dout(in_r_dout_$ch_num), .in_V_empty_n(in_r_empty_n_$ch_num), .in_V_read(in_r_read_$ch_num), .out_V_din(out_r_din_$ch_num), .out_V_full_n(!out_r_full_$ch_num), .out_V_write(out_r_write_$ch_num));' ",
+      "resource": {
+        "LUT": 1,
+        "LUTRAM": 0,
+        "FF": 0,
+        "BRAM": 0
+      },
+      "make_user": "cho",
+      "make_date": "2017-06-30 10:14:11",
+      "conf_user": "cho",
+      "conf_date": "2017-06-30 11:01:41",
+      "enable": 0      
+    },
+    "2": {
+      "name": "ip-loopback",
+      "tag": "0.0.1",
+      "ip_conf": "-clk '250' -data_width 128 -device 'xc7vx485tffg1761-2' ",
+      "shell_conf": "-channel '$ch_num' -clk '250' -reference ' $ip_name $instance_name (.ap_clk(ip_clk_$ch_num), .ap_rst(~ip_rst_n_$ch_num), .in_V_dout(in_r_dout_$ch_num), .in_V_empty_n(in_r_empty_n_$ch_num), .in_V_read(in_r_read_$ch_num), .out_V_din(out_r_din_$ch_num), .out_V_full_n(!out_r_full_$ch_num), .out_V_write(out_r_write_$ch_num));' ",
+      "resource": {
+        "LUT": 1,
+        "LUTRAM": 0,
+        "FF": 0,
+        "BRAM": 0
+      },
+      "make_user": "cho",
+      "make_date": "2017-06-30 10:14:11",
+      "conf_user": "cho",
+      "conf_date": "2017-06-30 11:01:41",
+      "enable": 0      
+    },
+    "3": {
+      "name": "ip-loopback",
+      "tag": "0.0.1",
+      "ip_conf": "-clk '250' -data_width 128 -device 'xc7vx485tffg1761-2' ",
+      "shell_conf": "-channel '$ch_num' -clk '250' -reference ' $ip_name $instance_name (.ap_clk(ip_clk_$ch_num), .ap_rst(~ip_rst_n_$ch_num), .in_V_dout(in_r_dout_$ch_num), .in_V_empty_n(in_r_empty_n_$ch_num), .in_V_read(in_r_read_$ch_num), .out_V_din(out_r_din_$ch_num), .out_V_full_n(!out_r_full_$ch_num), .out_V_write(out_r_write_$ch_num));' ",
+      "resource": {
+        "LUT": 1,
+        "LUTRAM": 0,
+        "FF": 0,
+        "BRAM": 0
+      },
+      "make_user": "cho",
+      "make_date": "2017-06-30 10:14:11",
+      "conf_user": "cho",
+      "conf_date": "2017-06-30 11:01:41",
+      "enable": 0      
+    },
+    "4": {
+      "name": "ip-loopback",
+      "tag": "0.0.1",
+      "ip_conf": "-clk '250' -data_width 128 -device 'xc7vx485tffg1761-2' ",
+      "shell_conf": "-channel '$ch_num' -clk '250' -reference ' $ip_name $instance_name (.ap_clk(ip_clk_$ch_num), .ap_rst(~ip_rst_n_$ch_num), .in_V_dout(in_r_dout_$ch_num), .in_V_empty_n(in_r_empty_n_$ch_num), .in_V_read(in_r_read_$ch_num), .out_V_din(out_r_din_$ch_num), .out_V_full_n(!out_r_full_$ch_num), .out_V_write(out_r_write_$ch_num));' ",
+      "resource": {
+        "LUT": 1,
+        "LUTRAM": 0,
+        "FF": 0,
+        "BRAM": 0
+      },
+      "make_user": "cho",
+      "make_date": "2017-06-30 10:14:11",
+      "conf_user": "cho",
+      "conf_date": "2017-06-30 11:01:41",
+      "enable": 0      
+    }     
+  },
+  "shell": {
+    "name": "shell-vc707-xillybus-ap_fifo128-pr-4ch",
+    "tag": "0.1.1",
+    "hardware": {
+      "board": "vc707",
+      "device": "xc7vx485tffg1761-2"
+    },
+    "conf": "",
+    "compatible_shell": {
+      "shell-vc707-xillybus-ap_fifo128": "4ch pr version."
+    }
+  }
+}
